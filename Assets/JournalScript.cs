@@ -63,11 +63,11 @@ public class JournalScript : MonoBehaviour {
 	}
 
 	void Update() {
-		changeText("boop", 1);
+		changeText(journalTextArray[journalTextIndex], 1);
 	}
 
 	void changeText(string text, int fulfillment){
-		journalText.text = "hey";
+		journalText.text = text;
 	}
 
 	bool checkIfFulfilled() {
