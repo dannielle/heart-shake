@@ -10,19 +10,13 @@ public class InputScript : MonoBehaviour {
 
 	int punchCount;
 
-	GUIText journalText;
-
 	void Start () {
-		journalText = GameObject.Find ("Journal").guiText;
-
 		punchCount = 0;
 		stream.Open ();
 		stream.ReadTimeout = 1;
 	}
 	
 	void Update () {
-		journalText.text = "LOL CHANGED";
-
 		int inp = 0;
 
 		if (stream.IsOpen) {
