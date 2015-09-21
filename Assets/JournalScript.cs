@@ -69,6 +69,7 @@ public class JournalScript : MonoBehaviour {
 		if (fulfilled) {
 			journalTextIndex++;
 			changeText(journalTextArray[journalTextIndex], 1);
+			changeNeeds(1);
 
 			fulfilled = false;
 		}
@@ -76,6 +77,10 @@ public class JournalScript : MonoBehaviour {
 
 	void changeText(string text, int fulfillment){
 		journalText.text = text;
+	}
+
+	void changeNeeds(int needs){
+		HeartScript.needs = HeartScript.State.Punch;
 	}
 
 	bool checkIfFulfilled() {

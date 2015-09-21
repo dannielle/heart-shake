@@ -6,7 +6,6 @@ public class InputScript : MonoBehaviour {
 
 	SerialPort stream = new SerialPort("/dev/cu.usbserial-DN00BXVG", 9600);
 	int PUNCH_INT = 1;
-	int SHAKE_INT = 2;
 
 	int punchCount;
 
@@ -27,22 +26,18 @@ public class InputScript : MonoBehaviour {
 
 			}
 		}
-			
-		bool isPunched = checkForPunch (inp);
-		if (isPunched) {
-			punchCount ++;
-			punch();
-		}
 
-		bool isShaken = checkForShaken (punchCount);
-		if (isShaken) {
+		if (checkForShaken (punchCount)) {
 			punchCount = 0;
-			shake();
+			shake ();
+		} else if (checkForPunch (inp)) {
+			punchCount ++;
+			punch ();
 		}
 	}
 
 	bool checkForPunch(int input){
-		if (input == PUNCH_INT) {
+		if (input == PUNCH_INT || Input.GetKeyDown(KeyCode.P)) {
 			return true;
 		}
 		return false;
@@ -56,11 +51,11 @@ public class InputScript : MonoBehaviour {
 	}
 
 	void punch() {
-		print ("PUNCH");
+		HeartScript.punch ();
 	}
 	
 	void shake() {
-		print ("SHAKE");
+		HeartScript.shake ();
 	}
 
 }
