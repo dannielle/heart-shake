@@ -30,6 +30,7 @@ public class InputScript : MonoBehaviour {
 		if (checkForShaken (punchCount)) {
 			punchCount = 0;
 			shake ();
+			return;
 		} else if (checkForPunch (inp)) {
 			punchCount ++;
 			punch ();
