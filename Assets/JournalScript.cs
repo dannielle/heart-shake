@@ -6,12 +6,12 @@ public class JournalScript : MonoBehaviour {
 
 	Text journalText;
 	string[] journalTextArray;
-	bool hasPressedSpace;
 	int journalTextIndex;
+	bool fulfilled;
 
 	void Start () {
 		journalText = GameObject.Find ("Journal").GetComponent<Text>();
-		hasPressedSpace = false;
+		fulfilled = false;
 		journalTextIndex = 0;
 		journalTextArray = new string[]{ "For some reason, love for me doesn’t seem to work like how it works for everyone else",
 		                   "Love comes easily for me (squeeze)",
@@ -60,10 +60,18 @@ public class JournalScript : MonoBehaviour {
 "and i couldn’t stop thinking about her",
 "i looked at salsa and i couldn’t stop thinking about her",
 "she was just so beautiful"};
+		changeText(journalTextArray[journalTextIndex], 1);
+
 	}
 
 	void Update() {
-		changeText(journalTextArray[journalTextIndex], 1);
+
+		if (fulfilled) {
+			journalTextIndex++;
+			changeText(journalTextArray[journalTextIndex], 1);
+
+			fulfilled = false;
+		}
 	}
 
 	void changeText(string text, int fulfillment){
