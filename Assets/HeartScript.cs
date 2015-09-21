@@ -20,7 +20,17 @@ public class HeartScript : MonoBehaviour {
 	}
 	
 	void Update () {
+		anim.SetBool ("squeezeBool", false);
 
+	}
+
+	public static void squeeze(){
+		feels = State.Squeeze;
+		animateSqueeze ();
+	}
+
+	static void animateSqueeze() {
+		anim.SetBool ("squeezeBool", true);
 	}
 
 	public static void punch(){

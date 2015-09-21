@@ -27,7 +27,10 @@ public class InputScript : MonoBehaviour {
 			}
 		}
 
-		if (checkForShaken (punchCount)) {
+		if (checkForSqueeze()) {
+			squeeze();
+			return;
+		} else if (checkForShaken (punchCount)) {
 			punchCount = 0;
 			shake ();
 			return;
@@ -35,6 +38,13 @@ public class InputScript : MonoBehaviour {
 			punchCount ++;
 			punch ();
 		}
+	}
+
+	bool checkForSqueeze(){
+		if (Input.GetKey (KeyCode.S)) {
+			return true;
+		}
+		return false;
 	}
 
 	bool checkForPunch(int input){
@@ -49,6 +59,10 @@ public class InputScript : MonoBehaviour {
 			return true;
 		}
 		return false;
+	}
+
+	void squeeze() {
+		HeartScript.squeeze ();
 	}
 
 	void punch() {
