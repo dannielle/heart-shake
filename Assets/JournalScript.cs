@@ -65,12 +65,14 @@ public class JournalScript : MonoBehaviour {
 	}
 
 	void Update() {
+		fulfilled = checkIfFulfilled ();
 
 		if (fulfilled) {
 			journalTextIndex++;
 			changeText(journalTextArray[journalTextIndex], 1);
 			changeNeeds(1);
 
+			HeartScript.feels = HeartScript.State.Idle;
 			fulfilled = false;
 		}
 	}
@@ -84,6 +86,6 @@ public class JournalScript : MonoBehaviour {
 	}
 
 	bool checkIfFulfilled() {
-		return false;
+		return (HeartScript.needs == HeartScript.feels);
 	}
 }

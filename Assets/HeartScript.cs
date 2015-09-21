@@ -21,7 +21,6 @@ public class HeartScript : MonoBehaviour {
 	
 	void Update () {
 		anim.SetBool ("squeezeBool", false);
-
 	}
 
 	public static void squeeze(){
