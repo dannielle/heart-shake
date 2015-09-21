@@ -41,7 +41,7 @@ public class InputScript : MonoBehaviour {
 	}
 
 	bool checkForSqueeze(){
-		if (Input.GetKey (KeyCode.S)) {
+		if (Input.GetKeyDown (KeyCode.S)) {
 			return true;
 		}
 		return false;

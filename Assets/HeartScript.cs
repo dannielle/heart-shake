@@ -29,7 +29,7 @@ public class HeartScript : MonoBehaviour {
 	}
 
 	static void animateSqueeze() {
-		anim.SetBool ("squeezeBool", true);
+		anim.SetTrigger ("squeezeTrigger");
 	}
 
 	public static void punch(){
