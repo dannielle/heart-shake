@@ -16,7 +16,6 @@ public class JournalScript : MonoBehaviour {
 
 	Text journalText;
 	ArrayList jt = new ArrayList();
-	string[] journalTextArrayDefunct; 
 	int journalTextIndex;
 	bool fulfilled;
 
@@ -25,7 +24,6 @@ public class JournalScript : MonoBehaviour {
 	int PUNCH = 1;
 	int SHAKE = 2;
 	int SQUEEZE = 3;
-	int INSTRUCTIONS = 4;
 	int END = 5;
 
 	void Start () {
@@ -33,7 +31,7 @@ public class JournalScript : MonoBehaviour {
 		instructionsText = GameObject.Find ("Instructions").GetComponent<Text> ();
 		fulfilled = false;
 		journalTextIndex = 0;
-		jt.Add(new Excerpt("Heart shake. Written & Code by Dee. Art by Jeff MacDonald. Music by Jared Le Doux.", PUNCH));
+		jt.Add(new Excerpt("Heart shake. Writing & Code by Dee. Art by Jeff MacDonald. Music by Jared Le Doux.", PUNCH));
 		jt.Add(new Excerpt("For some reason, love for me doesn’t seem to work like how it works for everyone else", PUNCH));
 		jt.Add (new Excerpt ("Love comes easily for me", PUNCH));
 		jt.Add (new Excerpt ("I'm serious!", SHAKE));
@@ -75,31 +73,6 @@ public class JournalScript : MonoBehaviour {
 		jt.Add (new Excerpt ("she was just so beautiful", PUNCH));
 		jt.Add (new Excerpt ("I hope I never have to change how I feel.", PUNCH));
 		jt.Add (new Excerpt ("I hope I never have to change how I feel. End.", END));
-
-		journalTextArrayDefunct = new string[]{
-"* Why do I keep imagining myself kissing all of my friends",
-"You",
-"and you",
-"and you punch",
-"and you punch",
-"and you punch",
-"and you punch",
-"and you punch",
-"and you punch",
-"and you punch",
-"<<visual break slide>>",
-"* in march 2015 i conducted a phone interview with an older woman and it was so beautiful",
-"our conversation was so full of joy and i couldn’t stop smiling",
-"we had chemistry",
-"and she told me, “i can tell that you and i would be very close if we lived near each other”",
-"and my heart felt so tight",
-"in april 2015 i met the most intelligent and charming woman",
-"and she was so cute and wore red lipstick and tilted her head",
-"and she blushed and she asked me if i had a crush on her",
-"in july 2015 I went to the grocery store once and saw the most beautiful woman",
-"and i couldn’t stop thinking about her",
-"i looked at salsa and i couldn’t stop thinking about her",
-"she was just so beautiful"};
 		changeText(((Excerpt) jt[journalTextIndex]).text);
 	}
 

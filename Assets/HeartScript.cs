@@ -33,7 +33,6 @@ public class HeartScript : MonoBehaviour {
 	}
 
 	public static void punch(){
-		print ("PUNCH");
 		feels = State.Punch;
 		animatePunch ();
 	}
@@ -43,7 +42,6 @@ public class HeartScript : MonoBehaviour {
 	}
 
 	public static void shake(){
-		print ("SHAKE");
 		feels = State.Shake;
 		animateShake ();
 	}

@@ -1,32 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.IO.Ports;
 
 public class InputScript : MonoBehaviour {
-
-	SerialPort stream = new SerialPort("/dev/cu.usbserial-DN00BXVG", 9600);
-	int PUNCH_INT = 1;
 
 	int punchCount;
 
 	void Start () {
 		punchCount = 0;
-		stream.Open ();
-		stream.ReadTimeout = 1;
 	}
 	
 	void Update () {
-		int inp = 0;
-
-		if (stream.IsOpen) {
-			try {
-				inp = stream.ReadByte();
-				//print (inp);
-			} catch (System.Exception) {
-
-			}
-		}
-
 		if (checkForSqueeze()) {
 			squeeze();
 			return;
@@ -34,7 +17,7 @@ public class InputScript : MonoBehaviour {
 			punchCount = 0;
 			shake ();
 			return;
-		} else if (checkForPunch (inp)) {
+		} else if (checkForPunch ()) {
 			punchCount ++;
 			punch ();
 		}
@@ -47,8 +30,8 @@ public class InputScript : MonoBehaviour {
 		return false;
 	}
 
-	bool checkForPunch(int input){
-		if (input == PUNCH_INT || Input.GetKeyDown(KeyCode.P)) {
+	bool checkForPunch(){
+		if (Input.GetKeyDown(KeyCode.P)) {
 			return true;
 		}
 		return false;
